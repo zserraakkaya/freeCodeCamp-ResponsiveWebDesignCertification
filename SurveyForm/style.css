@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Georgia;
+  background-color: #eedfde15;
+}
+header {
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+}
+header h1 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-size: 2rem;
+}
+header p {
+  margin-top: -3px;
+  padding-top: 0;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+fieldset {
+  width: 60%;
+  margin: 0 auto 20px;
+  padding: 0;
+  border: 8px double rgba(0, 0, 0, 0.2);
+}
+legend {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#personal-details {
+  margin-top: 0;
+  padding-top: 0;
+}
+#personal-details label,
+#personal-details input,
+#personal-details select {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+#personal-details input,
+#personal-details select {
+  margin-bottom: 20px;
+  width: 40%;
+  height: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+#personal-details label {
+  font-size: 0.9rem;
+}
+
+#dev-env div,
+#dev-path div {
+  display: block;
+  margin: 0 auto 10px;
+  text-align: center;
+}
+
+fieldset:last-of-type,
+fieldset:last-of-type legend {
+  border: none;
+  margin: 0 auto;
+  text-align: center;
+}
+#submit {
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  cursor: pointer;
+  width: 20%;
+  height: 5vw;
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+}
+#submit:hover {
+  background-color: white;
+  color: black;
+}

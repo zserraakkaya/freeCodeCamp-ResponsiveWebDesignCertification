@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--link to css-->
+    <link rel="stylesheet" href="style.css" />
+    <title>Survey Form</title>
+  </head>
+  <body>
+    <!--header-->
+    <header>
+      <h1 id="title">Developer Survey</h1>
+      <p id="description">
+        Thank you for filling out our survey to help us improve ourselves.
+      </p>
+    </header>
+
+    <!--form-->
+    <form id="survey-form" action="">
+      <!--personal details-->
+      <fieldset id="personal-details">
+        <legend>Personal Details</legend>
+        <label for="name" id="name-label">Your Name</label>
+        <input id="name" type="text" placeholder="Your Name" required />
+
+        <label for="email" id="email-label">Your Email</label>
+        <input id="email" type="email" placeholder="Your Email" required />
+
+        <label for="number" id="number-label">Your Age</label>
+        <input
+          id="number"
+          type="number"
+          min="13"
+          max="120"
+          placeholder="Your Age"
+          required
+        />
+
+        <label for="dropdown">Gender</label>
+        <select name="gender" id="dropdown" required>
+          <option value="">(Choose one)</option>
+          <option value="f">Female</option>
+          <option value="m">Male</option>
+        </select>
+      </fieldset>
+
+      <!--preferred dev. env.-->
+      <fieldset id="dev-env">
+        <legend>Preferred Development Environment</legend>
+        <div>
+          <input id="ide" type="radio" name="dev-env" value="ide" />
+          <label for="ide">IDE (Integrated Development Environment)</label>
+        </div>
+        <div>
+          <input
+            id="text-editor"
+            type="radio"
+            name="dev-env"
+            value="text-editor"
+          />
+          <label for="text-editor">Text Editor</label>
+        </div>
+      </fieldset>
+
+      <!--dev. paths-->
+      <fieldset id="dev-path">
+        <legend>Developer Paths You Are Familiar With</legend>
+        <div>
+          <input
+            id="front-end"
+            type="checkbox"
+            name="dev-paths"
+            value="front-end"
+          />
+          <label for="front-end">Front-End Web Development</label>
+        </div>
+        <div>
+          <input
+            id="back-end"
+            type="checkbox"
+            name="dev-paths"
+            value="back-end"
+          />
+          <label for="back-end">Back-End Web Development</label>
+        </div>
+        <div>
+          <input
+            id="data-science"
+            type="checkbox"
+            name="dev-paths"
+            value="data-science"
+          />
+          <label for="data-science">Data Science</label>
+        </div>
+        <div>
+          <input id="dotnet" type="checkbox" name="dev-paths" value="dotnet" />
+          <label for="dotnet">.Net Core</label>
+        </div>
+      </fieldset>
+
+      <!--additional comments-->
+      <fieldset>
+        <legend id="add-comments">Additional Comments</legend>
+        <textarea
+          name="add-comments"
+          id="add-comments"
+          cols="40"
+          rows="5"
+        ></textarea>
+      </fieldset>
+
+      <!--submit button-->
+      <button type="submit" id="submit">Submit</button>
+    </form>
+  </body>
+</html>
