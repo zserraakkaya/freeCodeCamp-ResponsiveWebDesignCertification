@@ -4,4 +4,4 @@
 
 ### 1 - Survey Form
 
-![](file:///Users/zeynep/Documents/fCC/1/SurveyForm/index.html)
+![](https://github.com/zserraakkaya/freeCodeCamp-ResponsiveWebDesignCertification/blob/main/SurveyForm/Screenshot%202024-01-19%20at%2020.33.37.png)
