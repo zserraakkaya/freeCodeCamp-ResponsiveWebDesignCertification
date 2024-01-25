@@ -1,0 +1,123 @@
+body {
+  font-family: Verdana;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: rgba(89, 131, 252, 1);
+  background-image: linear-gradient(
+    126deg,
+    rgba(89, 131, 252, 1) 25%,
+    rgba(41, 53, 86, 1) 50%
+  );
+  padding-top: 80px;
+}
+
+#nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: max-content;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid white;
+  padding-right: 30px;
+}
+
+#nav-bar li {
+  list-style-type: none;
+  text-align: left;
+}
+
+#nav-bar a {
+  color: black;
+  cursor: pointer;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+header h2 {
+  font-size: 1rem;
+}
+
+header img {
+  width: 50%;
+  max-width: 1000px;
+  display: block;
+  margin: 0 auto;
+}
+
+#general-info section {
+  width: 60%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  border: 1px solid white;
+}
+
+#general-info section div {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.center-list-item {
+  text-align: center;
+}
+
+#m3-types-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+#m3-types {
+  flex: 1;
+  max-width: 300px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid white;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+form {
+  width: 50%;
+  display: block;
+  margin: 40px auto;
+  text-align: center;
+}
+
+form input,
+form button {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px ridge white;
+}
+
+form input {
+  height: 30px;
+  width: 40%;
+  margin-bottom: 10px;
+}
+
+#submit {
+  height: 50px;
+  width: 20%;
+  color: white;
+}
+
+#email::placeholder {
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  #nav-bar {
+    font-size: 0.8rem;
+  }
+}
