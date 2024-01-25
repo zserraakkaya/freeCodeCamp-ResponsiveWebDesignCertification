@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Flask</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header><h1>Flask Documentation</h1></header>
+      <p>
+        →
+        <a href="#A_Minimal_Application" class="nav-link"
+          >A Minimal Application</a
+        >
+      </p>
+      <p>→ <a href="#Debug_Mode" class="nav-link">Debug Mode</a></p>
+      <p>→ <a href="#HTML_Escaping" class="nav-link">HTML Escaping</a></p>
+      <p>→ <a href="#Routing" class="nav-link">Routing</a></p>
+      <p>→ <a href="#Static_Files" class="nav-link">Static Files</a></p>
+      <p>
+        →
+        <a href="#Rendering_Templates" class="nav-link">Rendering Templates</a>
+      </p>
+    </nav>
+
+    <main id="main-doc">
+      <section class="main-section" id="A_Minimal_Application">
+        <header>A Minimal Application</header>
+        <code>
+          <pre>
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    return "&lt;p&gt;Hello, World!&lt;/p&gt;"</pre
+          >
+        </code>
+        <p>So what did that code do?</p>
+        <ol>
+          <li>
+            First, we imported the <span class="bold">Flask</span> class. An
+            instance of this class will be our WSGI application.
+          </li>
+          <li>
+            Next, we create an instance of this class. The first argument is the
+            name of the application’s module or package.
+            <code class="exclude">__name__</code> is a convenient shortcut for
+            this that is appropriate for most cases. This is needed so that
+            Flask knows where to look for resources such as templates and static
+            files.
+          </li>
+          <li>
+            We then use the <code class="exclude">route()</code> decorator to
+            tell Flask what URL should trigger our function.
+          </li>
+          <li>
+            The function returns the message we want to display in the user’s
+            browser. The default content type is HTML, so HTML in the string
+            will be rendered by the browser.
+          </li>
+        </ol>
+      </section>
+      <hr />
+      <section class="main-section" id="Debug_Mode">
+        <header>Debug Mode</header>
+        <p>
+          The <code class="exclude">flask run</code> command can do more than
+          just start the development server. By enabling debug mode, the server
+          will automatically reload if code changes, and will show an
+          interactive debugger in the browser if an error occurs during a
+          request.
+        </p>
+      </section>
+      <hr />
+      <section class="main-section" id="HTML_Escaping">
+        <header>HTML Escaping</header>
+        <p>
+          When returning HTML (the default response type in Flask), any
+          user-provided values rendered in the output must be escaped to protect
+          from injection attacks. HTML templates rendered with Jinja, introduced
+          later, will do this automatically.
+        </p>
+        <p>
+          <span class="bold">escape()</span>, shown here, can be used manually.
+          It is omitted in most examples for brevity, but you should always be
+          aware of how you’re using untrusted data.
+        </p>
+        <code>
+          <pre>
+from markupsafe import escape
+@app.route("/&lt;name&gt;")
+def hello(name):
+    return f"Hello, {{ escape(name) }}!"</pre
+          >
+        </code>
+        <p>
+          If a user managed to submit the name
+          <code class="exclude">&lt;script&gt;alert("bad")&lt;/script&gt;</code
+          >, escaping causes it to be rendered as text, rather than running the
+          script in the user’s browser.
+        </p>
+        <p>
+          <code class="exclude">&lt;name&gt</code>; in the route captures a
+          value from the URL and passes it to the view function. These variable
+          rules are explained below.
+        </p>
+      </section>
+      <hr />
+      <section class="main-section" id="Routing">
+        <header>Routing</header>
+        <p>
+          Modern web applications use meaningful URLs to help users. Users are
+          more likely to like a page and come back if the page uses a meaningful
+          URL they can remember and use to directly visit a page.
+        </p>
+        <p>
+          Use the <span class="bold">route()</span> decorator to bind a function
+          to a URL.
+        </p>
+        <code>
+          <pre>
+@app.route('/')
+def index():
+    return 'Index Page'</pre
+          >
+        </code>
+        <code>
+          <pre>
+@app.route('/hello')
+def hello():
+    return 'Hello, World'</pre
+          >
+        </code>
+      </section>
+      <hr />
+      <section class="main-section" id="Static_Files">
+        <header>Static Files</header>
+        <p>
+          Dynamic web applications also need static files. That’s usually where
+          the CSS and JavaScript files are coming from. Ideally, your web server
+          is configured to serve them for you, but during development Flask can
+          do that as well. Just create a folder called
+          <code class="exclude">static</code> in your package or next to your
+          module, and it will be available at
+          <code class="exclude">/static</code> on the application.
+        </p>
+        <p>
+          To generate URLs for static files, use the special '<code
+            class="exclude"
+            >static</code
+          >' endpoint name:
+        </p>
+        <code>url_for('static', filename='style.css')</code>
+        <p>
+          The file has to be stored on the filesystem as
+          <code class="exclude">static/style.css</code>.
+        </p>
+      </section>
+      <hr />
+      <section class="main-section" id="Rendering_Templates">
+        <header>Rendering Templates</header>
+        <p>
+          Generating HTML from within Python is not fun and actually pretty
+          cumbersome because you have to do the HTML escaping on your own to
+          keep the application secure. Because of that, Flask configures the
+          Jinja2 template engine for you automatically.
+        </p>
+        <p>
+          Templates can be used to generate any type of text file. For web
+          applications, you’ll primarily be generating HTML pages, but you can
+          also generate markdown, plain text for emails, and anything else.
+        </p>
+        <p>
+          To render a template, you can use the
+          <span class="bold">render_template()</span> method. All you have to do
+          is provide the name of the template and the variables you want to pass
+          to the template engine as keyword arguments. Here’s a simple example
+          of how to render a template:
+        </p>
+        <code>
+          <pre>
+from flask import render_template
+@app.route('/hello/')
+@app.route('/hello/&lt;name&gt;')
+def hello(name=None):
+    return render_template('hello.html', name=name)</pre
+          >
+        </code>
+        <p>
+          Flask will look for templates in the
+          <code class="exclude">templates</code> folder. So if your application
+          is a module, this folder is next to that module; if it’s a package,
+          it’s actually inside your package:
+        </p>
+        <ul>
+          <li>
+            <p>Case 1: a module:</p>
+            <code>
+              <pre>
+/application.py
+/templates
+    /hello.html</pre
+              >
+            </code>
+          </li>
+          <li>
+            <p>Case 2: a package:</p>
+            <code>
+              <pre>
+/application
+    /__init__.py
+    /templates
+        /hello.html</pre
+              >
+            </code>
+          </li>
+        </ul>
+        <p>
+          For templates, you can use the full power of Jinja2 templates. Head
+          over to the official Jinja2 Template Documentation for more
+          information.
+        </p>
+        <p>Here is an example template:</p>
+        <code>
+          <pre>
+&lt;!doctype html&gt; &lt;
+title&gt;Hello from Flask&lt;/title&gt;
+{% if name %}
+&lt;h1&gt;Hello {{ name }}!&lt;/h1&gt;
+{% else %}
+&lt;h1&gt;Hello, World!&lt;/h1&gt;
+{% endif %}</pre
+          >
+        </code>
+      </section>
+    </main>
+  </body>
+</html>
