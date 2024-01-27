@@ -1,0 +1,79 @@
+body {
+  background-color: #dbf2fc;
+}
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  background-color: black;
+  padding-right: 40px;
+}
+#navbar li {
+  list-style-type: none;
+}
+#navbar a {
+  color: white;
+  text-align: left;
+  display: block;
+  width: 100%;
+}
+#welcome-section {
+  text-align: center;
+  height: 100vh;
+}
+#welcome-section h1 {
+  font-size: 3rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+#welcome-section p {
+  font-size: 0.9rem;
+  margin-top: -5px;
+  padding-top: 0;
+}
+#welcome-section pre {
+  display: block;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid black;
+  width: max-content;
+}
+#welcome-section a {
+  text-decoration: none;
+  color: black;
+  text-align: right;
+  margin: 20px 0;
+  display: block;
+  width: 100%;
+}
+#projects-h1 {
+  font-size: 2rem;
+  margin: 40px auto;
+  text-align: center;
+}
+img {
+  width: 100%;
+}
+#projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.project-tile {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px 20px;
+  text-align: center;
+  font-style: italic;
+}
+.project-tile a {
+  text-decoration: underline;
+  display: block;
+  color: black;
+}
+@media (max-width: 400px) {
+  .project-tile {
+    font-size: 0.8rem;
+  }
+}
