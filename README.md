@@ -27,3 +27,5 @@
 ---
 
 ### 5 - Personal Portfolio
+
+![](https://github.com/zserraakkaya/freeCodeCamp-ResponsiveWebDesignCertification/blob/main/PersonalPortfolio/ss.png)
