@@ -2,6 +2,10 @@
 
 ---
 
+[Certificate](https://www.freecodecamp.org/certification/zeynepakkaya2/responsive-web-design)
+
+---
+
 ### 1 - Survey Form
 
 ![](https://github.com/zserraakkaya/freeCodeCamp-ResponsiveWebDesignCertification/blob/main/SurveyForm/Screenshot%202024-01-19%20at%2020.33.37.png)
